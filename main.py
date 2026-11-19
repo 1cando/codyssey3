@@ -5,7 +5,7 @@ import time #연산에 걸리는 시간 측정
 
 EPSILON = 1e-9 # 이 값보다 차이가 적으면 Cross 필터와 X 필터 UNDECIDED로 판정
 REPEAT_COUNT = 10 # MAC 연산의 평균 실행 시간을 구하기 위해 최소 10회 반복하도록 설정한 값
-SUPPORTED_SIZES = (3, 5, 13, 25) # 지원하는 행렬 크기
+SUPPORTED_SIZES = (3, 5, 13, 25) # 지원하는 행렬 크기, 튜플(tuple) 자료형으로 상수를 정의, 튜플은 상수라 변경 불가능
 
 
 # --------------------------------------------------
@@ -280,6 +280,7 @@ def load_filters(filters_data):
 
         normalized_group = {}
         # name은 오류메시지에 사용하므로 오류 위치를 정확히 파악하기 위해 {raw_label}를 줘야한다.
+        # normalized_group 딕셔너리에 label을 키(key)로, matrix를 값(value)으로 저장
         for raw_label, matrix in filter_group.items():
             try:
                 label = normalize_label(raw_label)
