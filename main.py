@@ -464,6 +464,12 @@ def run_json_mode():
         )
         print(f"{size}×{size:<9}{average_time:<20.6f}{size * size}")
 
+    # passed = 0
+
+    # for result in results:
+    #     if result["status"] == "PASS":
+    #         passed += 1
+
     total = len(results)
     passed = sum(1 for result in results if result["status"] == "PASS")
     failed = total - passed
